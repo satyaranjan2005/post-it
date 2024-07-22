@@ -1,0 +1,8 @@
+.home{
+    padding: 20px 70px;
+    overflow: scroll;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    
+}

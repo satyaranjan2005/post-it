@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import './navbar.css'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -9,9 +9,13 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import { AuthContext } from '../../context/auth';
 
 
 const Navbar = () => {
+
+  const {currentUser} = useContext(AuthContext);
+
   return (
     <div className='navbar'>
       <div className="nav-left">
@@ -31,8 +35,8 @@ const Navbar = () => {
         <EmailOutlinedIcon/>
         <NotificationsNoneOutlinedIcon/>
         <div className="user">
-          <img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="user" />
-          <span>Khushi Jain</span>
+          <img src={currentUser.profilePic}/>
+          <span>{currentUser.name}</span>
         </div>
       </div>
     </div>
